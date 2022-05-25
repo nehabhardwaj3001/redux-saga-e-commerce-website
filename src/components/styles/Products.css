@@ -1,0 +1,43 @@
+.container{
+    text-align: center;
+     padding: 20px;
+     top: 100%;
+     left: 50%;
+     background-color:white;
+ }
+ 
+ .input-box {
+    width: 40%;
+    height: 35px;
+    padding: 12px 20px;
+    margin: 15px 10px 0 10px;
+    box-sizing: border-box;
+    border: 1px solid black   ;
+    background-color: aliceblue;
+    color: white;
+    border-radius: 2px;
+  }
+
+  .button{
+    background-color: tomato;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:10px;
+  }
+
+  .col{
+    display:inline-block;
+  }
+
+  .image{
+    padding: 10px;
+    margin: 10px;
+}
+

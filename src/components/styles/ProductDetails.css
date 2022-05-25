@@ -1,0 +1,9 @@
+.user-details{
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 60%;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    margin: 30px 20%;
+}
