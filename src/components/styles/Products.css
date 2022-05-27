@@ -4,9 +4,14 @@
      top: 100%;
      left: 50%;
      background-color:white;
+     /* margin-top: 120px; */
  }
 
- .categories{
+ .search-product{
+   margin-top: 120px;
+ }
+
+ /* .categories{
    margin-top: 130px;
    display: flex;
    justify-content: space-around;
@@ -18,7 +23,7 @@
    border-radius: 5px;
    color:#565959;
  }
- 
+  */
  .input-box {
     width: 40%;
     height: 35px;
@@ -58,3 +63,7 @@
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
 }
+/* 
+.data{
+  margin-top: 120px;
+} */

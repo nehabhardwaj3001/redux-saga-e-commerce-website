@@ -1,6 +1,10 @@
-import { GET_PRODUCTS_FETCH, GET_ALL_PRODUCTS_SUCCESS, GET_PRODUCTS_DETAILS_SUCCESS, GET_PRODUCTS_CATEGORY_SUCCESS } from "./action";
+import { GET_PRODUCTS_FETCH, 
+	     GET_ALL_PRODUCTS_SUCCESS, 
+		 GET_PRODUCTS_DETAILS_SUCCESS, 
+		 GET_PRODUCTS_CATEGORY_SUCCESS
+		} from "../actions/productAction";
 
-const initialState = { products: [], loading: false, error: null, productDetails: [], categories: [] };
+const initialState = { products: [], productDetails: [], categories: [] };
 
 const productsReducer = (state = initialState, action) => {
 	switch (action.type) {
