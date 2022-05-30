@@ -1,6 +1,6 @@
 .container{
     text-align: center;
-     padding: 20px;
+     /* padding: 20px; */
      top: 100%;
      left: 50%;
      background-color:white;
@@ -24,7 +24,7 @@
    color:#565959;
  }
   */
- .input-box {
+ /* .input-box {
     width: 40%;
     height: 35px;
     padding: 12px 20px;
@@ -34,9 +34,33 @@
     background-color: aliceblue;
     color: black;
     border-radius: 2px;
-  }
+  } */
 
-  .button{
+  .search{
+    height: 40px;
+    width: 70%;
+    border-radius: 60px;
+    outline: none;
+    margin-right: -35px;
+    border: 2px solid rgb(248, 26, 92);
+  }
+  
+  .btn0{
+    height: 40px;
+    width: 30%;
+    border: none;
+    outline: none;
+    background:rgb(248, 26, 92);
+    color: white;
+    font-weight: 700;
+    border-radius: 60px;
+  }
+.d-flex {
+  display: flex!important;
+  justify-content: center;
+  margin: 0 25%;
+}
+  /* .button{
     background-color: tomato;
     border: none;
     color: white;
@@ -48,7 +72,7 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius:10px;
-  }
+  } */
 
   .col{
     display:inline-block;
