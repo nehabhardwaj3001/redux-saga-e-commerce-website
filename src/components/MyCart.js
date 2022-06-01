@@ -14,22 +14,30 @@ console.log("cart", cartItems)
     <div className='mycart'>
       <Navbar />
       <h2 className='heading'>MY CART</h2>
-        <Grid container spacing={3}>
+      <div className='cart-items'>
+        <div>
       {
          cartItems && cartItems[0] && cartItems.map((item, index) => {
           return (
-            <Grid item xs={4}  key={index} className="image-title">
+            <div className='cart-div'>
+            <div className="image">
               <img className='image' src={item.image} width="200px" height="200px"  />
-              <p><span>Title: </span> {item.title}</p>
-              <p><span>Price: </span> {item.price}</p>
-              <p><span>Category: </span> {item.category}</p>
-              <button>Buy Now</button>
-              <button onClick={() => {dispatch(removeFromCart(item))}}>Remove</button>
-            </Grid>
+              </div>
+              <div className='info-div'>
+              <p className='product-title'>{item.title}</p>
+              <div className='price-div'>
+              <p className='price-tag'>Price: </p> <p className='price'>  $ {item.price}</p>
+            </div>
+            <p className='description1'>Category: {item.category}</p>
+             <div className='btn'> <button className='cart-button'>Buy Now</button>
+              <button className='cart-button' onClick={() => {dispatch(removeFromCart(item))}}>Remove</button></div>
+            </div>
+            </div>
           );
          })
       }
-      </Grid>
+      </div>
+      </div>
     </div>
   )
 }

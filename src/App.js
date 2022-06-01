@@ -6,6 +6,7 @@ import Login from './components/Login';
 import MyCart from './components/MyCart';
 import Categories from './components/Categories';
 import SignIn from './components/SignIn';
+import NewProduct from './components/NewProduct';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
@@ -25,11 +26,11 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/home' element={<Home />}/>
         <Route path='/' element={<Login />}/>
-        {/* <Route path='*' element={<Login />}/> */}
         <Route path='/product/:id' element={<ProductDetails />}/>
         <Route path='/category/:category' element={<Categories />}/>
         <Route path='/mycart' element={<MyCart />}/>
         <Route path='/signIn' element={<SignIn />}/> 
+        <Route path='/create' element={<NewProduct />} />
         <Route path='*' element={<Login/>}/> 
       </Routes>
     </div>

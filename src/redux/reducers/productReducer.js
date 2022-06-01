@@ -1,7 +1,7 @@
-import { GET_PRODUCTS_FETCH, 
-	     GET_ALL_PRODUCTS_SUCCESS, 
+import { GET_ALL_PRODUCTS_SUCCESS, 
+	     ADD_PRODUCT,
 		 GET_PRODUCTS_DETAILS_SUCCESS, 
-		 GET_PRODUCTS_CATEGORY_SUCCESS
+		 GET_PRODUCTS_CATEGORY_SUCCESS,
 		} from "../actions/productAction";
 
 const initialState = { products: [], productDetails: [], categories: [] };
@@ -25,6 +25,12 @@ const productsReducer = (state = initialState, action) => {
 			return {
 				...state,
 				categories: action.categories,
+			};
+		case "ADD_PRODUCT":
+			console.log("pro  redu", state.products)
+			return {
+				...state, 
+				products : [...state.products,action.data]
 			};
 		default:
 			return state;

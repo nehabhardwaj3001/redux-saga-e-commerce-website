@@ -7,8 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
 const Navbar = () => {
-  const products = useSelector(state => state.productsReducer.products);
-  console.log("products", products)
   const [category, setCategory] = useState("");
   const navigate = useNavigate();
   const options = [
@@ -24,23 +22,23 @@ const Navbar = () => {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg">
-        <div class="container">
-          <Link class="navbar-brand" to="/home"> E-COMMERCE </Link>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg">
+        <div className="container">
+          <Link className="navbar-brand" to="/home"> E-COMMERCE </Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0">
-              <li class="nav-item">
-                <Link class="nav-link active" to="/home">Home</Link>
+          <div className="collapse navbar-collapse" id="navbarScroll">
+            <ul className="navbar-nav me-auto my-2 my-lg-0">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/home">Home</Link>
               </li>
               <div className='cart'>
                 {
                   localStorage.getItem("details") ?
-                    <>  <li class="nav-item">
-                      <Link class="nav-link" to="/mycart"> MyCart</Link></li>
-                      <li class="nav-item">
+                    <>  <li className="nav-item">
+                      <Link className="nav-link" to="/mycart"> MyCart</Link></li>
+                      <li className="nav-item">
                         <Button content="logout"
                           onClick={() => {
                           localStorage.clear();
