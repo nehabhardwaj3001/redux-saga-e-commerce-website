@@ -50,6 +50,23 @@ const Navbar = () => {
                     <Link to="/login"><Button content="logIn" /></Link>
                 }
               </div>
+              {/* <div className='filter'>
+              <h4 className='price-filter'>Price Filter</h4>
+              <div className='price-input'>
+                <div className='field'>
+                  <span>Min</span>
+                  <input type="number" className='input-min' placeholder='min' onChange={(e)=>setLowerlimit(e.target.value)}/>
+                </div>
+                <div className='seperator'> - </div>
+                <div className='field'>
+                  <span>Max</span>
+                  <input type='number' className='input-max' placeholder='max' onChange={(e)=>setUpperlimit(e.target.value)}/>
+                </div>
+              </div>
+              </div> */}
+              {/* <div className='slider'>
+                <div className='progress'></div>
+              </div> */}
             </ul>
             <Dropdown
               onChange={handleChange}

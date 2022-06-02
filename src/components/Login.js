@@ -41,9 +41,9 @@ const Login = () => {
 			if (!values.email) {
 				errors.email = "Email is required!";
 			}
-		else if (item.email !== details.email && item.password !== details.password) {
-			errors.InvalidEmail = "Invalid Email or Password !";
-		}
+			else if (item.email !== details.email && item.password !== details.password) {
+				errors.InvalidEmail = "Invalid Email or Password !";
+			}
 		})
 		if (values.password.length === 0) {
 			errors.password = "Password is required";
@@ -76,11 +76,11 @@ const Login = () => {
 					<input type="password" name="password" id="password" onChange={e => setdetails({ ...details, password: e.target.value })} value={details.password} />
 				</div>
 				<p className='error'> {formErrors.password} </p>
-				<Button type='submit' variant='contained' color='primary' onClick={()=>{
+				<Button type='submit' variant='contained' color='primary' onClick={() => {
 					localStorage.setItem("details", JSON.stringify(details));
 				}}>Login</Button>
 			</form>
-			<p className='register'>Not a user? <Link className = 'register' to="/signIn">Register now</Link></p>
+			<p className='register'>Not a user? <Link className='register' to="/signIn">Register now</Link></p>
 		</div>
 	)
 }
