@@ -57,9 +57,22 @@ const Login = () => {
 		return errors;
 	};
 
+	const PostData = async (e)=>{
+		const {firstname, lastname, username, email, password} = signInDetails;
+		fetch("http://localhost:5000/register",{
+		  method: "POST",
+		  headers: {
+			"content-Type" : "application/json"
+		  },
+		  body: JSON.stringify({
+			firstname, lastname, username, email, password
+		  })
+		})
+	  }
+
 	return (
 		<div className='form-container'>
-			<form onSubmit={submitHandler}>
+			<form onSubmit={PostData}>
 				<h2 className='login'>Sign In</h2>
 				<div className='form-group'>
 					<label htmlFor='firstName'>First Name :</label>

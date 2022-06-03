@@ -4,20 +4,23 @@ import { getProductsFetch } from '../redux/actions/productAction';
 import { Grid } from '@material-ui/core';
 import { Link , useNavigate} from 'react-router-dom';
 import './styles/Products.css';
+import axios from 'axios';
 import Pagination from '@material-ui/lab/Pagination';
 
 const Products = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [page, setPage] = useState(1);
   const[lowerlimit,setLowerlimit]=useState(0);
   const[upperlimit,setUpperlimit]=useState(10000); 
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
   const products = useSelector(state => state.productsReducer.products);
- 
+  const handleChange = (value) => {
+    setPage(value);
+  };
 
 //   const storeData = (symbolName) => {
-//     axios.post( 'http://localhost:5000/api/stockList',  {Symbol: symbolName, Count: buyQuantity},
+//     axios.post( 'http://localhost:5000/api/products', 
 //     {
 //         headers: {
 //             'Access-Control-Allow-Origin' : '*'
@@ -61,12 +64,12 @@ const Products = () => {
         <Grid container spacing={3}>
           {
             products
-            .filter((item) => {
-              if(item.title.toLowerCase().includes(search.toLowerCase()) && item.price>=lowerlimit &&item.price<=upperlimit
-              ) {
-                  return item;
-              }
-          })
+          //   .filter((item) => {
+          //     if(item.title.toLowerCase().includes(search.toLowerCase()) && item.price>=lowerlimit &&item.price<=upperlimit
+          //     ) {
+          //         return item;
+          //     }
+          // })
             .map((item, index) => {
               return (
                 <Grid item xs={3}  key={index} className="image-title">
@@ -79,7 +82,7 @@ const Products = () => {
             })
           }
         </Grid>
-        <Pagination  count={4} variant="outlined" shape="rounded"/>
+        <Pagination count={4} variant="outlined" color="primary" page={page} onChange={handleChange}/>
       </div>
       </div>
   )
