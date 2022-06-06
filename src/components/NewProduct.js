@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addProduct } from '../redux/actions/productAction';
@@ -7,7 +7,7 @@ import './styles/NewProduct.css';
 const NewProduct = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const [productDetail, setProductDetail] = useState({ title: "", price: "", description: "", category: "" });
+	const [productDetail, setProductDetail] = useState({ title: "", price: "", description: "", category: "" ,image:"" });
 
 	const categories = [
 		"electronics",
@@ -17,14 +17,14 @@ const NewProduct = () => {
 	];
 
 	const Add = async (e)=>{
-        const { title, price, description, category } = productDetail;
+        const { title, price, description, category, image } = productDetail;
         fetch("http://localhost:5000/addproducts",{
           method: "POST",
           headers: {
             "content-Type" : "application/json"
           },
           body: JSON.stringify({
-            title, price, description, category
+            title, price, description, category, image
           })
         })
       }
@@ -92,11 +92,15 @@ const NewProduct = () => {
 					</select>
 				</div>
 
-				{/* <div id="createProductFormImage">
-              {imagesPreview.map((image, index) => (
-                <img key={index} src={image} alt="Product Preview" />
-              ))}
-            </div> */}
+				<div>
+					<input
+						type="text"
+						placeholder="Product Image"
+						required
+						value={productDetail.image}
+						onChange={e => setProductDetail({ ...productDetail, image: e.target.value })}
+					/>
+				</div>
 
 				<button
 					id="createProductBtn"

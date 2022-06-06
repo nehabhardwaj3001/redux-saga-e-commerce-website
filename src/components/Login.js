@@ -41,7 +41,7 @@ const Login = () => {
 			if (!values.email) {
 				errors.email = "Email is required!";
 			}
-			else if (item.email !== details.email && item.password !== details.password) {
+			else if (item.email !== details?.email || item.password !== details?.password) {
 				errors.InvalidEmail = "Invalid Email or Password !";
 			}
 		})

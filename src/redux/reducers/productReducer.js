@@ -1,5 +1,4 @@
 import { GET_ALL_PRODUCTS_SUCCESS, 
-	     ADD_PRODUCT,
 		 GET_PRODUCTS_DETAILS_SUCCESS, 
 		 GET_PRODUCTS_CATEGORY_SUCCESS,
 		} from "../actions/productAction";

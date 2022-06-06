@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Grid } from '@material-ui/core';
-import {addToCart, removeFromCart} from '../redux/actions/cartAction';
+import { removeFromCart} from '../redux/actions/cartAction';
 import Navbar from './Navbar';
 import './styles/MyCart.css';
 
@@ -21,7 +20,7 @@ console.log("cart", cartItems)
           return (
             <div className='cart-div'>
             <div className="image">
-              <img className='image' src={item.image} width="200px" height="200px"  />
+              <img className='image' src={item.image} alt="cartImage" width="200px" height="200px"  />
               </div>
               <div className='info-div'>
               <p className='product-title'>{item.title}</p>

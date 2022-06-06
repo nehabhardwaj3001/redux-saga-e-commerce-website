@@ -2,35 +2,52 @@ import React, { useState, useEffect } from 'react';
 import "./styles/Login.css";
 import { useNavigate } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import { useDispatch } from 'react-redux';
-import { addUser } from '../redux/actions/userAction';
 
 const Login = () => {
-	const dispatch = useDispatch();
-	const [signInDetails, setsignInDetails] = useState({ firstname: "", lastname: "", username: "", email: "", password: "" });
+	const [details, setDetails] = useState({ firstname: "", lastname: "", username: "", email: "", password: "" });
 	const [formErrors, setFormErrors] = useState({});
 	const [isSubmit, setIsSubmit] = useState(false);
 	const navigate = useNavigate();
 
-	const submitHandler = (e) => {
+	// const submitHandler = (e) => {
+	// 	e.preventDefault();
+	// 	setFormErrors(validate(signInDetails));
+	// 	setIsSubmit(true);
+	// 	console.log(signInDetails);
+	// 	dispatch(addUser(signInDetails));
+	// 	navigate("/home")
+	// }
+
+	useEffect(() => {
+		localStorage.setItem("signInDetails", JSON.stringify(details));
+	}, [details]);
+
+	const PostData = async (e)=>{
+		const {firstname, lastname, username, email, password} = details;
 		e.preventDefault();
-		setFormErrors(validate(signInDetails));
+		setFormErrors(validate(details));
 		setIsSubmit(true);
-		console.log(signInDetails);
-		dispatch(addUser(signInDetails));
-		navigate("/home")
-	}
-
-	useEffect(() => {
-		localStorage.setItem("signInDetails", JSON.stringify(signInDetails));
-	}, [signInDetails]);
-
-	useEffect(() => {
-		console.log(formErrors);
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
+		 await fetch("http://localhost:5000/register",{
+		  method: "POST",
+		  headers: {
+			"content-Type" : "application/json"
+		  },
+		  body: JSON.stringify({
+			firstname, lastname, username, email, password
+		  })
+		})
+		console.log("csdv",details);
 			navigate('/home');
 		}
-	}, [formErrors]);
+	  }
+
+	//   useEffect(() => {
+	// 	console.log(formErrors);
+	// 	if (Object.keys(formErrors).length === 0 && isSubmit) {
+	// 		navigate('/home');
+	// 	}
+	// }, [formErrors]);
 
 	const validate = (values) => {
 		const errors = {};
@@ -57,18 +74,7 @@ const Login = () => {
 		return errors;
 	};
 
-	const PostData = async (e)=>{
-		const {firstname, lastname, username, email, password} = signInDetails;
-		fetch("http://localhost:5000/register",{
-		  method: "POST",
-		  headers: {
-			"content-Type" : "application/json"
-		  },
-		  body: JSON.stringify({
-			firstname, lastname, username, email, password
-		  })
-		})
-	  }
+
 
 	return (
 		<div className='form-container'>
@@ -76,30 +82,32 @@ const Login = () => {
 				<h2 className='login'>Sign In</h2>
 				<div className='form-group'>
 					<label htmlFor='firstName'>First Name :</label>
-					<input type="text" username="username" id="firstName" onChange={e => setsignInDetails({ ...signInDetails, firstname: e.target.value })} value={signInDetails.firstname} />
+					<input type="text" username="username" id="firstName" onChange={e => setDetails({ ...details, firstname: e.target.value })} value={details.firstname} />
 				</div>
 				<p className='error'> {formErrors.firstname} </p>
 				<div className='form-group'>
 					<label htmlFor='lastName'>Last Name :</label>
-					<input type="text" username="username" id="lastName" onChange={e => setsignInDetails({ ...signInDetails, lastname: e.target.value })} value={signInDetails.lastname} />
+					<input type="text" username="username" id="lastName" onChange={e => setDetails({ ...details, lastname: e.target.value })} value={details.lastname} />
 				</div>
 				<p className='error'> {formErrors.lastname} </p>
 				<div className='form-group'>
 					<label htmlFor='username'>Username :</label>
-					<input type="text" username="username" id="username" onChange={e => setsignInDetails({ ...signInDetails, username: e.target.value })} value={signInDetails.username} />
+					<input type="text" username="username" id="username" onChange={e => setDetails({ ...details, username: e.target.value })} value={details.username} />
 				</div>
 				<p className='error'> {formErrors.username} </p>
 				<div className='form-group'>
 					<label htmlFor='email'>Email :</label>
-					<input type="email" name="email" id="email" onChange={e => setsignInDetails({ ...signInDetails, email: e.target.value })} value={signInDetails.email} />
+					<input type="email" name="email" id="email" onChange={e => setDetails({ ...details, email: e.target.value })} value={details.email} />
 				</div>
 				<p className='error'> {formErrors.email} </p>
 				<div className='form-group'>
 					<label htmlFor='password'>Password :</label>
-					<input type="password" name="password" id="password" onChange={e => setsignInDetails({ ...signInDetails, password: e.target.value })} value={signInDetails.password} />
+					<input type="password" name="password" id="password" onChange={e => setDetails({ ...details, password: e.target.value })} value={details.password} />
 				</div>
 				<p className='error'> {formErrors.password} </p>
-				<Button type='submit' variant='contained' color='primary'>Sign In</Button>
+				<Button type='submit' variant='contained' color='primary' onClick={() => {
+					localStorage.setItem("signInDetails", JSON.stringify(details));
+				}}>Sign In</Button>
 			</form>
 		</div>
 	)

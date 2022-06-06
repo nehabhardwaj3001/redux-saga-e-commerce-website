@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import "./styles/Navbar.css";
-import { useSelector } from 'react-redux';
-import { Dropdown } from 'semantic-ui-react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
+import { FormControl } from '@material-ui/core';
+import { InputLabel } from '@material-ui/core';
+import { Select } from '@material-ui/core';
+import { MenuItem } from '@material-ui/core';
+import { OutlinedInput } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 const Navbar = () => {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState([]);
+  // const open = Boolean(category);
   const navigate = useNavigate();
-  const options = [
-    { key: 1, text: 'electronics', value: "electronics" },
-    { key: 2, text: 'jewelery', value: "jewelery" },
-    { key: 3, text: "men's clothing", value: "men's clothing" },
-    { key: 4, text: "women's clothing", value: "women's clothing" },
-  ]
-  const handleChange = (e, { value }) => {
-    setCategory(value);
-    navigate(`/category/${value}`)
+  const options = ['electronics', 'jewelery', "men's clothing" ,"women's clothing"]
+  //   { key: 1, text: 'electronics', value: "electronics" },
+  //   { key: 2, text: 'jewelery', value: "jewelery" },
+  //   { key: 3, text: "men's clothing", value: "men's clothing" },
+  //   { key: 4, text: "women's clothing", value: "women's clothing" },
+  // ]
+  
+  const handleChange = (e) => {
+    setCategory(e.target.value);
+    navigate(`/category/${e.target.value}`)   
   };
 
   return (
@@ -34,47 +39,48 @@ const Navbar = () => {
                 <Link className="nav-link active" to="/home">Home</Link>
               </li>
               <div className='cart'>
-                {
+                {/* {
                   localStorage.getItem("details") ?
-                    <>  <li className="nav-item">
+                    <>  */}
+                     <li className="nav-item">
                       <Link className="nav-link" to="/mycart"> MyCart</Link></li>
                       <li className="nav-item">
-                        <Button content="logout"
+                      <Button variant="outlined"
                           onClick={() => {
                           localStorage.clear();
                           navigate("/login")
-                        }}
-                         /></li>
-                    </>
-                    :
-                    <Link to="/login"><Button content="logIn" /></Link>
-                }
+                        }}>LogOut</Button>
+                         </li>
+                    {/* </> */}
+                    {/* :
+                    <Link to="/login"><Button variant="outlined">LogOut</Button></Link>
+                } */}
               </div>
-              {/* <div className='filter'>
-              <h4 className='price-filter'>Price Filter</h4>
-              <div className='price-input'>
-                <div className='field'>
-                  <span>Min</span>
-                  <input type="number" className='input-min' placeholder='min' onChange={(e)=>setLowerlimit(e.target.value)}/>
-                </div>
-                <div className='seperator'> - </div>
-                <div className='field'>
-                  <span>Max</span>
-                  <input type='number' className='input-max' placeholder='max' onChange={(e)=>setUpperlimit(e.target.value)}/>
-                </div>
-              </div>
-              </div> */}
-              {/* <div className='slider'>
-                <div className='progress'></div>
-              </div> */}
             </ul>
-            <Dropdown
+         
+              <FormControl size="small" fullWidth style={{ width: '200px'}}>
+                <InputLabel id="demo-simple-select-label" >Category</InputLabel>
+                <Select
+                  labelId="demo-simple-select-standard-label"
+                  id="demo-simple-select-standard"
+                  value={category}
+                  label="Category"
+                  onChange={ handleChange }
+                  input={<OutlinedInput label="Name" />}
+                >
+                {options.map((item)=> {
+                  console.log("shk", item)
+                  return <MenuItem key={item} value={item}>{item}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
+            {/* <Dropdown
               onChange={handleChange}
               options={options}
               placeholder='All'
               selection
               value={category}
-            />
+            /> */}
           </div>
         </div>
       </nav>

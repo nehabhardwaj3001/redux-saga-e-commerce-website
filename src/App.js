@@ -14,9 +14,11 @@ function App() {
   useEffect(()=>{
     console.log('insiede app.jsz',localStorage.getItem("details"));
     const user = JSON.parse(localStorage.getItem("details"));
-    console.log("hdj", user)
+    console.log("hdj", user?.email)
     if(!user?.email){
       navigate('/login');
+    } else {
+      navigate('/home')
     }
   },[])
 
