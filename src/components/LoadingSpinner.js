@@ -1,14 +1,18 @@
 import * as React from 'react';
-// import CircularProgress from '@mui/material/CircularProgress';
-// import Box from '@mui/material/Box';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
-function LoadingSpinner() {
+export default function SimpleBackdrop() {
+  // const [open, setOpen] = React.useState(false);
+
   return (
-    <div></div>
-    // <Box sx={{ display: 'flex' }}>
-    //   <CircularProgress />
-    // </Box>
+    <div>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    </div>
   );
 }
-
-export default LoadingSpinner;

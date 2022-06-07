@@ -3,7 +3,7 @@ import "./styles/Login.css";
 import { useNavigate } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-const Login = () => {
+const SignIn = () => {
 	const [details, setDetails] = useState({ firstname: "", lastname: "", username: "", email: "", password: "" });
 	const [formErrors, setFormErrors] = useState({});
 	const [isSubmit, setIsSubmit] = useState(false);
@@ -11,7 +11,7 @@ const Login = () => {
 
 	// const submitHandler = (e) => {
 	// 	e.preventDefault();
-	// 	setFormErrors(validate(signInDetails));
+	// 	setFormErrors(validate(details));
 	// 	setIsSubmit(true);
 	// 	console.log(signInDetails);
 	// 	dispatch(addUser(signInDetails));
@@ -19,7 +19,7 @@ const Login = () => {
 	// }
 
 	useEffect(() => {
-		localStorage.setItem("signInDetails", JSON.stringify(details));
+		localStorage.setItem("details", JSON.stringify(details));
 	}, [details]);
 
 	const PostData = async (e)=>{
@@ -28,7 +28,8 @@ const Login = () => {
 		setFormErrors(validate(details));
 		setIsSubmit(true);
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
-		 await fetch("http://localhost:5000/register",{
+		localStorage.setItem("details", JSON.stringify(details));
+		 await fetch("http://localhost:7000/register",{
 		  method: "POST",
 		  headers: {
 			"content-Type" : "application/json"
@@ -79,7 +80,7 @@ const Login = () => {
 	return (
 		<div className='form-container'>
 			<form onSubmit={PostData}>
-				<h2 className='login'>Sign In</h2>
+				<h2 className='login'>Sign Up</h2>
 				<div className='form-group'>
 					<label htmlFor='firstName'>First Name :</label>
 					<input type="text" username="username" id="firstName" onChange={e => setDetails({ ...details, firstname: e.target.value })} value={details.firstname} />
@@ -105,12 +106,10 @@ const Login = () => {
 					<input type="password" name="password" id="password" onChange={e => setDetails({ ...details, password: e.target.value })} value={details.password} />
 				</div>
 				<p className='error'> {formErrors.password} </p>
-				<Button type='submit' variant='contained' color='primary' onClick={() => {
-					localStorage.setItem("signInDetails", JSON.stringify(details));
-				}}>Sign In</Button>
+				<Button type='submit' variant='contained' color='primary' >Sign Up</Button>
 			</form>
 		</div>
 	)
 }
 
-export default Login;
+export default SignIn;

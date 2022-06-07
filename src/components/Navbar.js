@@ -8,6 +8,7 @@ import { Select } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
 import { OutlinedInput } from '@material-ui/core';
 import { Button } from '@material-ui/core';
+import logo from '../images/e-commerce image.jpg';
 
 const Navbar = () => {
   const [category, setCategory] = useState([]);
@@ -29,7 +30,8 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg">
         <div className="container">
-          <Link className="navbar-brand" to="/home"> E-COMMERCE </Link>
+        <Link className="navbar-brand" to="/home"><img src={logo} />
+           E-COMMERCE </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>

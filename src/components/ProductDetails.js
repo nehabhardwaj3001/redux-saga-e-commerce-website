@@ -6,7 +6,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {getProductDetailsFetch} from '../redux/actions/productAction';
 import { addToCart } from '../redux/actions/cartAction';
 import './styles/ProductDetails.css';
-import  { LoadingSpinner } from './LoadingSpinner'
+import SimpleBackdrop  from './LoadingSpinner.js';
 
 function ProductDetails() {
   const params = useParams();
@@ -24,12 +24,12 @@ const handleChange = () => {
 };
 
   return (
-    // <div>
-    //   {(productDetails && productDetails[0] && productDetails[0].image) ?
+    <div>
+      {(productDetails && productDetails.image) ?
      <div className='details-div'>
      <Navbar />
       <div className='user-details'>
-        {<div className='user-details' style={{marginTop : "150px"}}>
+        { <div className='user-details' style={{marginTop : "150px"}}>
           <div className='image-div'>
             <img className='image' src={productDetails.image} width="230px" height="230px" />
             <button className='cart-button' onClick={handleChange}>Add to Cart</button>
@@ -55,8 +55,8 @@ const handleChange = () => {
         </div>}
       </div> 
       </div>
-    //   : <LoadingSpinner />}
-    // </div>
+      : <SimpleBackdrop />}
+    </div>
   )
 }
 
