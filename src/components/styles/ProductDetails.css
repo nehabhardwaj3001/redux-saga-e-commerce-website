@@ -1,75 +1,77 @@
-.details-div{
-    margin-top: 0;
+.details-div {
+	margin-top: 0;
 }
 
-.user-details{
-    border-radius: 5px;
-    width: 80%; 
-    margin: 20px 10%;
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    margin-top: -110px;
-}
-.product-title{
-    font-size: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 30px;
-  }
-
-  .info-div{
-      text-align: justify;
-
-  }
-
-  .price-tag{
-      color: #565959;
-      font-size: 14px;
-      line-height: 20px;
-  }
-
-  .price-div{
-      display: flex;
-      align-items: center;
-      justify-content: flex-start
-  }
-
-  .price{
-      text-indent: 10px;
-      font-size: 25px;
-      line-height: 20px;
-      color: #b12704;
-  }
-  .fa-star{
-    font-size: 20px;
-    border: goldenrod;
-    /* color: '#f3da35'; */
-    color: gold;
+.user-details {
+	border-radius: 5px;
+	width: 80%;
+	margin: 20px 10%;
+	display: flex;
+	gap: 50px;
+	align-items: center;
+	margin-top: -110px;
 }
 
-.about{
-    color: #0f1111;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 24px;
+.product-title {
+	font-size: 24px;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 30px;
 }
 
-.description{
-    color: #404d4d;
-    font-size: 14px;
-    font-weight: 700;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 20px;
-    text-align: left;
+.info-div {
+	text-align: justify;
+
 }
 
-.cart-button{
-    margin-top: 50px;
-    font-size: 16px;
-    padding: 10px;
-    background-color: cadetblue;
-    border: none;
-    border-radius: 5px;
-    margin-right: 13px;
+.price-tag {
+	color: #565959;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.price-div {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start
+}
+
+.price {
+	text-indent: 10px;
+	font-size: 25px;
+	line-height: 20px;
+	color: #b12704;
+}
+
+.fa-star {
+	font-size: 20px;
+	border: goldenrod;
+	/* color: '#f3da35'; */
+	color: gold;
+}
+
+.about {
+	color: #0f1111;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 24px;
+}
+
+.description {
+	color: #404d4d;
+	font-size: 14px;
+	font-weight: 700;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 20px;
+	text-align: left;
+}
+
+.cart-button {
+	margin-top: 50px;
+	font-size: 16px;
+	padding: 10px;
+	background-color: cadetblue;
+	border: none;
+	border-radius: 5px;
+	margin-right: 13px;
 }

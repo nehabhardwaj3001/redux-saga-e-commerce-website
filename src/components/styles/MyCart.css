@@ -1,6 +1,6 @@
-.cart-div{
+.cart-div {
 	border-radius: 5px;
-	width: 100vh; 
+	width: 100vh;
 	margin: 20px 5%;
 	display: flex;
 	gap: 50px;
@@ -15,12 +15,12 @@
 	color: black;
 }
 
-.btn{
+.btn {
 	margin-top: -20px;
 	border: none;
 }
 
-.description1{
+.description1 {
 	color: #404d4d;
 	font-size: 14px;
 	font-weight: 700;
@@ -30,6 +30,6 @@
 	margin-top: revert;
 }
 
-.cart-items{
-	margin:0 20% 0 20%; 
+.cart-items {
+	margin: 0 20% 0 20%;
 }

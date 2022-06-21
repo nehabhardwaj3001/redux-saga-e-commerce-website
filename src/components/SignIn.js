@@ -17,8 +17,8 @@ const Login = () => {
 		setFormErrors(validate(signInDetails));
 		setIsSubmit(true);
 		console.log(signInDetails);
-		dispatch(addUser(signInDetails));   
-        navigate("/home")
+		dispatch(addUser(signInDetails));
+		navigate("/home")
 	}
 
 	useEffect(() => {
@@ -56,7 +56,7 @@ const Login = () => {
 		}
 		return errors;
 	};
- 
+
 	return (
 		<div className='form-container'>
 			<form onSubmit={submitHandler}>
@@ -65,27 +65,27 @@ const Login = () => {
 					<label htmlFor='firstName'>First Name :</label>
 					<input type="text" username="username" id="firstName" onChange={e => setsignInDetails({ ...signInDetails, firstname: e.target.value })} value={signInDetails.firstname} />
 				</div>
-				<p className='error'> {formErrors.firstname} </p> 
+				<p className='error'> {formErrors.firstname} </p>
 				<div className='form-group'>
 					<label htmlFor='lastName'>Last Name :</label>
 					<input type="text" username="username" id="lastName" onChange={e => setsignInDetails({ ...signInDetails, lastname: e.target.value })} value={signInDetails.lastname} />
 				</div>
-				<p className='error'> {formErrors.lastname} </p> 
+				<p className='error'> {formErrors.lastname} </p>
 				<div className='form-group'>
 					<label htmlFor='username'>Username :</label>
 					<input type="text" username="username" id="username" onChange={e => setsignInDetails({ ...signInDetails, username: e.target.value })} value={signInDetails.username} />
 				</div>
-			<p className='error'> {formErrors.username} </p> 
+				<p className='error'> {formErrors.username} </p>
 				<div className='form-group'>
 					<label htmlFor='email'>Email :</label>
 					<input type="email" name="email" id="email" onChange={e => setsignInDetails({ ...signInDetails, email: e.target.value })} value={signInDetails.email} />
 				</div>
-				<p className='error'> {formErrors.email} </p> 
+				<p className='error'> {formErrors.email} </p>
 				<div className='form-group'>
 					<label htmlFor='password'>Password :</label>
-					<input type="password" name="password" id="password" onChange={e => setsignInDetails({ ...signInDetails, password: e.target.value })} value={signInDetails.password}  />
+					<input type="password" name="password" id="password" onChange={e => setsignInDetails({ ...signInDetails, password: e.target.value })} value={signInDetails.password} />
 				</div>
-				<p className='error'> {formErrors.password} </p> 
+				<p className='error'> {formErrors.password} </p>
 				<Button type='submit' variant='contained' color='primary'>Sign In</Button>
 			</form>
 		</div>

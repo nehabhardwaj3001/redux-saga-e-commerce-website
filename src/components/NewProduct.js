@@ -7,56 +7,56 @@ import './styles/NewProduct.css';
 const NewProduct = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-// 	const [name, setName] = useState("");
-//   const [price, setPrice] = useState(0);
-//   const [description, setDescription] = useState("");
-//   const [category, setCategory] = useState("");
-const [productDetail, setProductDetail] = useState({ name: "", price: "", description: "", category: ""});
+	const [productDetail, setProductDetail] = useState({ name: "", price: "", description: "", category: "" });
 
 	const categories = [
-    "electronics",
-    "jewelery",
-    "men's clothing",
-    "women's clothing",
-  ];
+		"electronics",
+		"jewelery",
+		"men's clothing",
+		"women's clothing",
+	];
 
-// 	useEffect(() => {
-//       alert("Product Created Successfully");
-//       history.push("/admin/dashboard");
-//       dispatch({ type: NEW_PRODUCT_FETCH });
-//   });
-
-  const productSubmitHandler = (e) => {
-	e.preventDefault();
-	dispatch(addProduct(productDetail));   
-	navigate("/home")
-}
+	const productSubmitHandler = async (e) => {
+		e.preventDefault();
+		dispatch(addProduct(productDetail));
+		navigate("/home")
+		// const { name, price, description, category } = productDetail;
+		// const res = await fetch('./' , {
+		// 	method: 'POST',
+		// 	headers:{
+		// 		"Content-Type" : "application/json"
+		// 	},
+		// 	body:JSON.stringify({ name, price, description, category })
+		// });
+		// const res = await res.json();
+		// if(res.status === 422 )  
+	}
 
 	return (
 		<div className='newProductContainer'>
-			<form className="createProductForm" onSubmit={productSubmitHandler}>
-			<h1>Create Product</h1>
+			<form className="createProductForm" onSubmit={productSubmitHandler} method='POST'>
+				<h1>Create Product</h1>
 
-			<div>
-			<input
-				type="text"
-				placeholder="Product Name"
-				required
-				value={productDetail.name}
-				onChange={e => setProductDetail({ ...productDetail, name: e.target.value })}
-       />
-      </div>
+				<div>
+					<input
+						type="text"
+						placeholder="Product Name"
+						required
+						value={productDetail.name}
+						onChange={e => setProductDetail({ ...productDetail, name: e.target.value })}
+					/>
+				</div>
 
-			<div>
-				<input
-					type="number"
-					placeholder="Price"
-					required
-					onChange={e => setProductDetail({ ...productDetail, price: e.target.value })}
-				/>
-       </div>
+				<div>
+					<input
+						type="number"
+						placeholder="Price"
+						required
+						onChange={e => setProductDetail({ ...productDetail, price: e.target.value })}
+					/>
+				</div>
 
-			 <div>
+				<div>
 					<textarea
 						placeholder="Product Description"
 						value={productDetail.description}
@@ -64,12 +64,12 @@ const [productDetail, setProductDetail] = useState({ name: "", price: "", descri
 						cols="30"
 						rows="1"
 					></textarea>
-        </div>
+				</div>
 
 				<div>
 					<select
-					 onChange={e => setProductDetail({ ...productDetail, category: e.target.value })}
-					 >
+						onChange={e => setProductDetail({ ...productDetail, category: e.target.value })}
+					>
 						<option value="">Choose Category</option>
 						{categories.map((cate) => (
 							<option key={cate} value={productDetail.cate}>
@@ -77,31 +77,20 @@ const [productDetail, setProductDetail] = useState({ name: "", price: "", descri
 							</option>
 						))}
 					</select>
-         </div>
+				</div>
 
-					{/* <div id="createProductFormFile">
-						<input
-							type="file"
-							name="avatar"
-							accept="image/*"
-							onChange={createProductImagesChange}
-							multiple
-						/>
-           </div> */}
-
-					 {/* <div id="createProductFormImage">
+				{/* <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
                 <img key={index} src={image} alt="Product Preview" />
               ))}
             </div> */}
 
-						<button
-							id="createProductBtn"
-							type="submit"
-							// disabled={loading ? true : false}
-								>
-							Create
-            </button>
+				<button
+					id="createProductBtn"
+					type="submit"
+				>
+					Create
+				</button>
 
 			</form>
 		</div>
