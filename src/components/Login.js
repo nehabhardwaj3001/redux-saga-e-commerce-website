@@ -1,7 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import Home from './Home.js';
 import "./styles/Login.css";
-// import logo from '../image/logo.jpeg';
 import { useNavigate } from 'react-router-dom';
 import  Button   from '@material-ui/core/Button';
 

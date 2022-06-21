@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import ProductDetails from './components/ProductDetails';
 import Login from './components/Login';
+import MyCart from './components/MyCart';
+import Categories from './components/Categories';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -17,10 +19,10 @@ function App() {
         <Route path='/home' element={<Home />}/>
         <Route path='/' element={<Home />}/>
         <Route path='/:id' element={<ProductDetails />}/>
+        <Route path='/categories/:category' element={<Categories />}/>
+        {/* <Route path='/mycart' element={<MyCart />}/> */}
         </Routes>
       </Router>
-      {/* <Navbar />
-      <Products /> */}
     </div>
   );
 }
