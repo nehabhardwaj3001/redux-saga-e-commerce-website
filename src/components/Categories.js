@@ -1,9 +1,8 @@
 import React,{ useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {getProductCategoryFetch} from '../redux/actions/productAction';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import Navbar from './Navbar.js';
 import './styles/Categories.css';
 

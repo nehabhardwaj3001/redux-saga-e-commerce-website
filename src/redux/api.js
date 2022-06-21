@@ -1,5 +1,5 @@
 export function productsFetch() {
-	return fetch('http://localhost:5000/addproducts')
+	return fetch('http://localhost:7000/addproducts')
 		.then(response => response.json())
 }
 
@@ -14,6 +14,6 @@ export function productCategoriesFetch(category) {
 }
 
 export function usersFetch() {
-	return fetch(`http://localhost:5000/register`)
+	return fetch(`http://localhost:7000/register`)
 		.then(response => response.json())
 }

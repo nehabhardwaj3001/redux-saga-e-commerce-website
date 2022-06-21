@@ -5,6 +5,7 @@ import { Grid } from '@material-ui/core';
 import { Link , useNavigate} from 'react-router-dom';
 import './styles/Products.css';
 import Pagination from '@material-ui/lab/Pagination';
+import SimpleBackdrop from './LoadingSpinner';
 
 const Products = () => {
   const [page, setPage] = useState(1);
@@ -26,11 +27,13 @@ const Products = () => {
   const handleClick = () => {
     navigate('/create')
   };
+  
 
   return (
+    <> {products && products[0] && products[0].image  ? 
     <div className='container'>
    <div className='product'> <form className="d-flex">
-      <input className="px-2 search" type="search" placeholder="Search" aria-label="Search" onChange={(e) => setSearch(e.target.value)} />
+      <input className="px-2 search" type="search" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
       <button className="btn0" type="submit">Search</button>
     </form>
     <div className='filter'>
@@ -51,7 +54,7 @@ const Products = () => {
           {
             products
             .filter((item) => {
-              if(item.title.toLowerCase().includes(search.toLowerCase()) && item.price>=lowerlimit &&item.price<=upperlimit
+              if(item.title.toLowerCase().includes(search.toLowerCase()) && item.price>=lowerlimit && item.price<=upperlimit
               ) {
                   return item;
               }
@@ -70,7 +73,8 @@ const Products = () => {
         </Grid>
         <Pagination count={4} variant="outlined" color="primary" page={page} onChange={handleChange}/>
       </div>
-      </div>
+      </div> :  <SimpleBackdrop />}
+      </>
   )
 }
 

@@ -25,6 +25,7 @@ const Login = () => {
 		console.log("state", state)
 		state.map((item) => {
 			if (item.email === details.email && item.password === details.password) {
+				localStorage.setItem("details", JSON.stringify(details))
 				navigate("/home");
 			}
 		})
@@ -76,9 +77,7 @@ const Login = () => {
 					<input type="password" name="password" id="password" onChange={e => setdetails({ ...details, password: e.target.value })} value={details.password} />
 				</div>
 				<p className='error'> {formErrors.password} </p>
-				<Button type='submit' variant='contained' color='primary' onClick={() => {
-					localStorage.setItem("details", JSON.stringify(details));
-				}}>Login</Button>
+				<Button type='submit' variant='contained' color='primary' >Login</Button>
 			</form>
 			<p className='register'>Not a user? <Link className='register' to="/signIn">Register now</Link></p>
 		</div>

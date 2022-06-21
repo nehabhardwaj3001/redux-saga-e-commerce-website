@@ -7,7 +7,7 @@ import './styles/NewProduct.css';
 const NewProduct = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const [productDetail, setProductDetail] = useState({ title: "", price: "", description: "", category: "" ,image:"" });
+	const [productDetail, setProductDetail] = useState({ title: "", price: "", description: "", category: "", image: "" });
 
 	const categories = [
 		"electronics",
@@ -16,18 +16,18 @@ const NewProduct = () => {
 		"women's clothing",
 	];
 
-	const Add = async (e)=>{
-        const { title, price, description, category, image } = productDetail;
-        fetch("http://localhost:5000/addproducts",{
-          method: "POST",
-          headers: {
-            "content-Type" : "application/json"
-          },
-          body: JSON.stringify({
-            title, price, description, category, image
-          })
-        })
-      }
+	const Add = async (e) => {
+		const { title, price, description, category, image } = productDetail;
+		fetch("http://localhost:7000/addproducts", {
+			method: "POST",
+			headers: {
+				"content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				title, price, description, category, image
+			})
+		})
+	}
 
 	const productSubmitHandler = async (e) => {
 		e.preventDefault();
