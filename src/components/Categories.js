@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from 'react';
+import React,{ useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {getProductCategoryFetch} from '../redux/actions/productAction';
 import { useParams } from 'react-router-dom';
@@ -12,9 +12,7 @@ const Categories = () => {
 	const params = useParams();
 	const categories = useSelector(state => state.productsReducer.categories);
 	const dispatch = useDispatch();
-  const [category, setCategory] = useState("");
-
-
+  // const [category, setCategory] = useState("");
 
 useEffect(() => {
   dispatch(getProductCategoryFetch(params.category))
@@ -26,11 +24,11 @@ console.log("category", categories)
         <Navbar /> 
       </div>
       <div className='category-items'>
-      <Grid container spacing={3}>
+      <Grid container spacing={6}>
       {
          categories && categories[0] && categories.map((item, index) => {
           return (
-            <Grid item xs={4}  key={index} className="image-title">
+            <Grid item xs={3}  key={index} className="image-title">
               <Link to={`/product/${item.id}`}  >
               <img className='image' src={item.image} width="200px" height="200px" />
               </Link>

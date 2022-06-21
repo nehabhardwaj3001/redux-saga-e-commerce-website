@@ -1,4 +1,4 @@
-import { RECEIVE_USER, ADD_USER } from "../actions/userAction";
+import { RECEIVE_USER } from "../actions/userAction";
 
 const initialState = { users: [] }
 

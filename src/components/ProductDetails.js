@@ -1,16 +1,15 @@
-import React, { useEffect,useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './styles/Navbar.css';
 import Navbar from './Navbar.js';
-import Products from './Products';
 import {useSelector, useDispatch} from 'react-redux';
 import {getProductDetailsFetch} from '../redux/actions/productAction';
 import { addToCart } from '../redux/actions/cartAction';
 import './styles/ProductDetails.css';
+import  { LoadingSpinner } from './LoadingSpinner'
 
 function ProductDetails() {
   const params = useParams();
-  const [cartItems, setCartItems] = useState("");
   const productDetails = useSelector(state => state.productsReducer.productDetails);
   const dispatch = useDispatch();
 
@@ -25,8 +24,10 @@ const handleChange = () => {
 };
 
   return (
-    <div className='details-div'>
-      <Navbar />
+    // <div>
+    //   {(productDetails && productDetails[0] && productDetails[0].image) ?
+     <div className='details-div'>
+     <Navbar />
       <div className='user-details'>
         {<div className='user-details' style={{marginTop : "150px"}}>
           <div className='image-div'>
@@ -52,8 +53,10 @@ const handleChange = () => {
            </div>
             </div>
         </div>}
+      </div> 
       </div>
-    </div>
+    //   : <LoadingSpinner />}
+    // </div>
   )
 }
 
