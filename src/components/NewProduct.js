@@ -7,7 +7,7 @@ import './styles/NewProduct.css';
 const NewProduct = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-	const [productDetail, setProductDetail] = useState({ name: "", price: "", description: "", category: "" });
+	const [productDetail, setProductDetail] = useState({ title: "", price: "", description: "", category: "" });
 
 	const categories = [
 		"electronics",
@@ -15,6 +15,19 @@ const NewProduct = () => {
 		"men's clothing",
 		"women's clothing",
 	];
+
+	const Add = async (e)=>{
+        const { title, price, description, category } = productDetail;
+        fetch("http://localhost:5000/addproducts",{
+          method: "POST",
+          headers: {
+            "content-Type" : "application/json"
+          },
+          body: JSON.stringify({
+            title, price, description, category
+          })
+        })
+      }
 
 	const productSubmitHandler = async (e) => {
 		e.preventDefault();
@@ -42,8 +55,8 @@ const NewProduct = () => {
 						type="text"
 						placeholder="Product Name"
 						required
-						value={productDetail.name}
-						onChange={e => setProductDetail({ ...productDetail, name: e.target.value })}
+						value={productDetail.title}
+						onChange={e => setProductDetail({ ...productDetail, title: e.target.value })}
 					/>
 				</div>
 
@@ -88,6 +101,7 @@ const NewProduct = () => {
 				<button
 					id="createProductBtn"
 					type="submit"
+					onClick={Add}
 				>
 					Create
 				</button>

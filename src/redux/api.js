@@ -1,5 +1,5 @@
 export function productsFetch() {
-	return fetch('https://fakestoreapi.com/products')
+	return fetch('http://localhost:5000/addproducts')
 		.then(response => response.json())
 }
 
@@ -14,6 +14,6 @@ export function productCategoriesFetch(category) {
 }
 
 export function usersFetch() {
-	return fetch(`https://fakestoreapi.com/users`)
+	return fetch(`http://localhost:5000/register`)
 		.then(response => response.json())
 }
