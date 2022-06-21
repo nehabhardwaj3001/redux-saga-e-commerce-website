@@ -9,20 +9,20 @@ import './styles/Categories.css';
 
 
 const Categories = () => {
-  // const [category , setCategory] = useState("")
-	const {params} = useParams();
+	const params = useParams();
 	const categories = useSelector(state => state.productsReducer.categories);
 	const dispatch = useDispatch();
-console.log("category", categories)
-// console.log("params category", params.category)
+  const [category, setCategory] = useState("");
 
-	useEffect(() => {
-    dispatch(getProductCategoryFetch(params.category))
-  }, [params.category]);
+console.log("category", categories)
+
+useEffect(() => {
+  dispatch(getProductCategoryFetch(params.category))
+}, [params.category]);
 
   return (
     <div className='category-page'>
-      <div className='navbar'>
+      <div className='navbar-catyegory'>
         <Navbar /> 
       </div>
       <div className='category-items'>
@@ -31,7 +31,9 @@ console.log("category", categories)
          categories && categories[0] && categories.map((item, index) => {
           return (
             <Grid item xs={4}  key={index} className="image-title">
+              <Link to={`/${item.id}`}  >
               <img className='image' src={item.image} width="200px" height="200px" />
+              </Link>
               <p className='title'>{item.title}</p>
             </Grid>
           );

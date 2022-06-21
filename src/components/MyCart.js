@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Grid } from '@material-ui/core';
-import {removeFromCart} from '../redux/actions/cartAction';
+import {addToCart, removeFromCart} from '../redux/actions/cartAction';
+import Navbar from './Navbar';
+import './styles/MyCart.css';
 
 const MyCart = () => {
  const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cartReducer.cartItems);
-console.log("jhsgcjh", cartItems)
+console.log("cart", cartItems)
+
   return (
     <div className='mycart'>
-      <h2>MY CART</h2>
+      <Navbar />
+      <h2 className='heading'>MY CART</h2>
         <Grid container spacing={3}>
       {
          cartItems && cartItems[0] && cartItems.map((item, index) => {
