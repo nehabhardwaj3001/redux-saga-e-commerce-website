@@ -24,7 +24,7 @@ export const getProductDetailsFetch = (id) => ({
 
 export const getProductCategoryFetch = (category) => ({
     type: GET_PRODUCTS_CATEGORY_FETCH,
-    category
+    category,
 });
 
 // export const getProductDetailsSuccess = (id) => ({

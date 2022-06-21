@@ -1,0 +1,12 @@
+.category-items{
+    margin-top: 150px;
+}
+
+.navbar{
+    margin-top: 0;
+}
+
+.category-page{
+    display: flex;
+    flex-direction: column;
+}

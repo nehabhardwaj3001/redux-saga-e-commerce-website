@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getProductsFetch , getProductCategoryFetch } from '../redux/action';
+import { getProductsFetch , getProductCategoryFetch } from '../redux/actions/productAction';
 import { Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './styles/Products.css'
@@ -8,7 +8,6 @@ import { productCategoriesFetch } from '../redux/api';
 
 const Products = () => {
   const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("");
   const dispatch = useDispatch();
   const products = useSelector(state => state.productsReducer.products);
   console.log("products", products)
@@ -19,15 +18,7 @@ const Products = () => {
 
   return (
     <div className='container'>
-      <div className='categories'>
-      <Link to={`/categories/${category}`}  >
-        <button className='category' onClick={(e) => setCategory(e.target.value)}>All</button>
-        <button className='category' onClick={(e) => setCategory(e.target.value)}>electronics</button>
-        <button className='category' onClick={(e) => setCategory(e.target.value)}>jewelery</button>
-        <button className='category' onClick={(e) => setCategory(e.target.value)}>men's clothing</button>
-        <button className='category' onClick={(e) => setCategory(e.target.value)}>women's clothing</button>
-      </Link>
-      </div>
+      <div className='search-product'>
       <div className='search'>
         <input className='input-box' type='text' placeholder="Search Product" onChange={(e) => setSearch(e.target.value)} /> 
         <button className="button">Search</button>
@@ -54,6 +45,7 @@ const Products = () => {
             })
           }
         </Grid>
+      </div>
       </div>
     </div>
   )

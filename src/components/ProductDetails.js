@@ -1,12 +1,12 @@
 import React, { useEffect,useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './styles/Navbar.css';
-import Navbar from './Navbar.js'
+import Navbar from './Navbar.js';
 import Products from './Products';
 import {useSelector, useDispatch} from 'react-redux';
-import {getProductDetailsFetch} from '../redux/action';
+import {getProductDetailsFetch} from '../redux/actions/productAction';
+import { addToCart } from '../redux/actions/cartAction';
 import './styles/ProductDetails.css';
-import { Button } from '@material-ui/core';
 
 function ProductDetails() {
   const params = useParams();
@@ -19,6 +19,10 @@ useEffect(() => {
 }, [params.id]);
 console.log("details", productDetails);
 
+const handleChange = () => {
+  dispatch(addToCart(productDetails));
+};
+
   return (
     <div className='details-div'>
       <Navbar />
@@ -26,17 +30,16 @@ console.log("details", productDetails);
         {<div className='user-details' style={{marginTop : "150px"}}>
           <div className='image-div'>
             <img className='image' src={productDetails.image} width="230px" height="230px" />
-            <button className='cart-button' 
-                          >Add to Cart</button>
+            <button className='cart-button' onClick={handleChange}>Add to Cart</button>
             </div>
             <div className='info-div'>
             <p className='product-title'> {productDetails.title}</p>
             <div className='starts'>
-            <i class='fa fa-star'></i>
-            <i class='fa fa-star'></i>
-            <i class='fa fa-star'></i>
-            <i class='fa fa-star'></i>
-            <i class='fa fa-star'></i>
+              <i className='fa fa-star'></i>
+              <i className='fa fa-star'></i>
+              <i className='fa fa-star'></i>
+              <i className='fa fa-star'></i>
+              <i className='fa fa-star'></i>
           </div>
             <div className='price-div'>
               <p className='price-tag'>Price: </p> <p className='price'>  $ {productDetails.price}</p>
