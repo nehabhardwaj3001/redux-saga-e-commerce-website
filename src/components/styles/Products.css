@@ -1,6 +1,6 @@
 .container{
     text-align: center;
-     /* padding: 20px; */
+     padding: 20px;
      top: 100%;
      left: 50%;
      background-color:white;
@@ -58,7 +58,7 @@
 .d-flex {
   display: flex!important;
   justify-content: center;
-  margin: 0 25%;
+  margin: -15px 25%;
 }
   /* .button{
     background-color: tomato;

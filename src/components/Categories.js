@@ -14,12 +14,12 @@ const Categories = () => {
 	const dispatch = useDispatch();
   const [category, setCategory] = useState("");
 
-console.log("category", categories)
+
 
 useEffect(() => {
   dispatch(getProductCategoryFetch(params.category))
 }, [params.category]);
-
+console.log("category", categories)
   return (
     <div className='category-page'>
       <div className='navbar-catyegory'>

@@ -6,8 +6,7 @@ import { GET_PRODUCTS_FETCH,
         GET_PRODUCTS_CATEGORY_SUCCESS,
         GET_PRODUCTS_CATEGORY_FETCH
        } from '../actions/productAction';
-import { ADD_TO_CART } from '../actions/cartAction';
- import { RECEIVE_USER , USERS_FETCH} from "../actions/userAction";
+ import { USERS_FETCH} from "../actions/userAction";
 import { productsFetch , productDetailsFetch, productCategoriesFetch, usersFetch } from "../api";
 import {receiveUser} from '../actions/userAction'
 
@@ -29,7 +28,7 @@ function* getProductCategoryFetch(action) {
 
 function* getuserFetch() {
     const users = yield call (usersFetch);
-    console.log("user", users)
+    // console.log("user", users)
     yield put(receiveUser(users))
 }
 

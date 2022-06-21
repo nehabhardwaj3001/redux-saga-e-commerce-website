@@ -64,6 +64,11 @@
 .navbar{
   margin-bottom: -20px;
 }
+
+.cart{
+  display: flex;
+}
+
 /* 
 .navigation {
     width: 95%;
