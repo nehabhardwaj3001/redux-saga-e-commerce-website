@@ -21,6 +21,7 @@ console.log("details", productDetails);
 
 const handleChange = () => {
   dispatch(addToCart(productDetails));
+  alert(`${productDetails.title} added to cart`)
 };
 
   return (

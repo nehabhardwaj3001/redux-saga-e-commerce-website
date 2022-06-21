@@ -60,6 +60,24 @@
   justify-content: center;
   margin: -15px 25%;
 }
+
+.product{
+  display: flex;
+  text-align: center;
+  align-items:flex-start;
+}
+
+.new-product{
+  height: 56px;
+  width: 122%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background:rgb(236, 82, 128);
+  color: white;
+  font-weight: 1000;
+  border-radius: 50px;
+}
   /* .button{
     background-color: tomato;
     border: none;

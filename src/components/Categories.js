@@ -31,7 +31,7 @@ console.log("category", categories)
          categories && categories[0] && categories.map((item, index) => {
           return (
             <Grid item xs={4}  key={index} className="image-title">
-              <Link to={`/${item.id}`}  >
+              <Link to={`/product/${item.id}`}  >
               <img className='image' src={item.image} width="200px" height="200px" />
               </Link>
               <p className='title'>{item.title}</p>

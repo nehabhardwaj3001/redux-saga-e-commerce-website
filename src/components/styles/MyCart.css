@@ -1,6 +1,35 @@
+.cart-div{
+	border-radius: 5px;
+	width: 100vh; 
+	margin: 20px 5%;
+	display: flex;
+	gap: 50px;
+	align-items: center;
+	margin-top: 30px;
+	border: 1px solid #565959;
+	padding-bottom: 20px;
+}
+
 .heading {
 	font-size: 2rem;
 	color: black;
-	/* font-family: Arial, Helvetica, sans-serif; */
+}
 
+.btn{
+	margin-top: -20px;
+	border: none;
+}
+
+.description1{
+	color: #404d4d;
+	font-size: 14px;
+	font-weight: 700;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 20px;
+	text-align: left;
+	margin-top: revert;
+}
+
+.cart-items{
+	margin:0 20% 0 20%; 
 }

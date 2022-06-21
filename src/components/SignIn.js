@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import "./styles/Login.css";
 import { useNavigate } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../redux/actions/userAction';
 
 const Login = () => {
+	const dispatch = useDispatch();
 	const [signInDetails, setsignInDetails] = useState({ firstname: "", lastname: "", username: "", email: "", password: "" });
 	const [formErrors, setFormErrors] = useState({});
 	const [isSubmit, setIsSubmit] = useState(false);
@@ -14,6 +17,8 @@ const Login = () => {
 		setFormErrors(validate(signInDetails));
 		setIsSubmit(true);
 		console.log(signInDetails);
+		dispatch(addUser(signInDetails));   
+        navigate("/home")
 	}
 
 	useEffect(() => {
@@ -58,12 +63,12 @@ const Login = () => {
 				<h2 className='login'>Sign In</h2>
 				<div className='form-group'>
 					<label htmlFor='firstName'>First Name :</label>
-					<input type="text" username="username" id="username" onChange={e => setsignInDetails({ ...signInDetails, firstname: e.target.value })} value={signInDetails.firstname} />
+					<input type="text" username="username" id="firstName" onChange={e => setsignInDetails({ ...signInDetails, firstname: e.target.value })} value={signInDetails.firstname} />
 				</div>
 				<p className='error'> {formErrors.firstname} </p> 
 				<div className='form-group'>
 					<label htmlFor='lastName'>Last Name :</label>
-					<input type="text" username="username" id="username" onChange={e => setsignInDetails({ ...signInDetails, lastname: e.target.value })} value={signInDetails.lastname} />
+					<input type="text" username="username" id="lastName" onChange={e => setsignInDetails({ ...signInDetails, lastname: e.target.value })} value={signInDetails.lastname} />
 				</div>
 				<p className='error'> {formErrors.lastname} </p> 
 				<div className='form-group'>

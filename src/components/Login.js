@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "./styles/Login.css";
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { getUsers } from '../redux/actions/userAction';
 
@@ -12,6 +12,10 @@ const Login = () => {
 	const [isSubmit, setIsSubmit] = useState(false);
 	const state = useSelector(state => state.userReducer.users)
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		dispatch(getUsers())
+	}, []);
 
 	const submitHandler = (e) => {
 		e.preventDefault();
@@ -29,10 +33,6 @@ const Login = () => {
 	// useEffect(() => {
 	// 	localStorage.setItem("details", JSON.stringify(details));
 	// }, [details]);
-
-	useEffect(() => {
-		dispatch(getUsers())
-	}, []);
 
 	const validate = (values) => {
 		const errors = {};
@@ -80,7 +80,7 @@ const Login = () => {
 					localStorage.setItem("details", JSON.stringify(details));
 				}}>Login</Button>
 			</form>
-			<p className='register'>Not a user? <a className = 'register' href="/signIn">Register now</a></p>
+			<p className='register'>Not a user? <Link className = 'register' to="/signIn">Register now</Link></p>
 		</div>
 	)
 }
